@@ -5,7 +5,7 @@
     <div class="project section-container" *ngFor="let project of projects">
       <div class="project__thumbnail" [style.background-image]="project.image && 'url(' + project.image.large.url + ')'">
         <span *ngIf="!project.image">
-          <img src="/assets/logo.svg" alt="Logo Watermark">
+          <img [src]="'/assets/logo.svg' | pathResolver" alt="Logo Watermark">
         </span>
         <div>
           <a *ngIf="project.image"><button (click)="onOpenModal('image', project)">Enlarge Image</button></a>

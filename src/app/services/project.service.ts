@@ -37,7 +37,6 @@ export class ProjectService {
       console.log('FROM SERVER: PROJECT_BY_SLUG');
       return this.http.get<Project[]>(`${URL}?slug="${slug}"`).pipe(
         catchError((err : HttpErrorResponse) => HttpErrorHandler(err, 'Could not Retrieve Project')),
-        // map(project => {console.log(x); return x})
       );
     }
 

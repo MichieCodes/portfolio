@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import {APP_BASE_HREF} from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,6 +23,7 @@ import { FilterByCategoryPipe } from './pipes/filter-by-category.pipe';
 import { TruncatePipe } from './pipes/truncate.pipe';
 import { ParseMarkdownPipe } from './pipes/parse-markdown.pipe';
 import { SafeUrlPipe } from './pipes/safe-url.pipe';
+import { PathResolverPipe } from './pipes/path-resolver.pipe';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { SafeUrlPipe } from './pipes/safe-url.pipe';
     TruncatePipe,
     ParseMarkdownPipe,
     SafeUrlPipe,
+    PathResolverPipe,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,7 @@ import { SafeUrlPipe } from './pipes/safe-url.pipe';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{provide: APP_BASE_HREF, useValue: '/portfolio'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

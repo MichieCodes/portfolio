@@ -1,5 +1,6 @@
 {
   "name": "portfolio-site",
+  "homepage": "https://michietuts.github.io/portfolio/",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

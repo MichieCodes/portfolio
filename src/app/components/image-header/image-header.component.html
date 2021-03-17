@@ -1,4 +1,4 @@
 <section id="image-header" [class.has-image]="image" [style.background-image]="image && 'url(' + image.full.url + ')'">
-  <span routerLink="/" fragment="projects"><a href="/#projects"><span class="arrow">< </span>Back to Projects</a></span>
+  <span (click)="back()"><a><span class="arrow">< </span>Back to Projects</a></span>
   <div *ngIf="image"></div>
 </section>

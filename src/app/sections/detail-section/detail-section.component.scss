@@ -17,8 +17,11 @@
       text-shadow: none;
       color: $contact-background;
 
-      @include media(0, tablet) {
+      @include media(phone-small, tablet) {
         font-size: 1.75rem;
+      }
+      @include media(0, phone-small) {
+        font-size: 1.675rem;
       }
     }
     & > .project-detail-content {
@@ -38,6 +41,7 @@
 
         & li {
           margin-bottom: 0.625rem;
+          overflow-wrap: break-word;
 
           &:last-of-type {
             margin-bottom: 0;

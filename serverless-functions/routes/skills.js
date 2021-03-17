@@ -6,7 +6,7 @@ exports.handler = async function(e) {
       statusCode: 200,
       body: JSON.stringify(await getAll('Skills')),
       headers: {
-        "access-control-allow-origin": "http://localhost:4200",
+        'access-control-allow-origin': '*',
         'cache-control': 's-maxage=120, immutable'
       }
     };

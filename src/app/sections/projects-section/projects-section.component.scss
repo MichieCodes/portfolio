@@ -162,6 +162,14 @@ $gradient-background : linear-gradient(
               background: $secondary-button-color;
             }
           }
+          
+          @include media(0, phone-small) {
+            margin-right: 0.625rem;
+
+            & > button {
+              font-size: 1.15rem;
+            }
+          }
         }
       }
     }
