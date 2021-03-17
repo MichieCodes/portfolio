@@ -12,13 +12,14 @@ export class ImageHeaderComponent implements OnInit {
 
   constructor(private router : Router) { }
 
-  ngOnInit() : void {
-  }
+  ngOnInit() : void { }
 
   back() : void {
-    this.router.navigateByUrl("/#skills");
+    this.router.navigateByUrl('/#projects');
+
     setTimeout(() => {
-      this.router.navigateByUrl("#projects");
+      let el = (<HTMLElement>document.getElementById('projects'));
+      el && el.scrollIntoView();
     }, 10);
   }
 }
