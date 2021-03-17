@@ -65,6 +65,14 @@
       & > a {
         margin-right: 1.25rem;
 
+        @include media(0, tablet) {
+          width: 100%;
+  
+          button {
+            width: 100%;
+          }
+        }
+
         &:last-of-type {
           margin-right: 0;
         }
