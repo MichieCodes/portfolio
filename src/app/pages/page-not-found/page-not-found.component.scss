@@ -1,0 +1,22 @@
+@import "../../../variables";
+@import "../../../media";
+
+#page-not-found {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  color: $text-color-dark;
+
+  &__title {
+    margin: 1.875rem 0 0 0;
+    line-height: 0.9;
+
+    @include media(phone-small, tablet) {
+      font-size: 2.75rem;
+    }
+    @include media(0, phone-small) {
+      font-size: 2.5rem;
+    }
+  }
+}
+

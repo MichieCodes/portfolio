@@ -1,0 +1,28 @@
+@mixin media($start, $end) {
+  $breakpoints: (
+    'phone-small': 370px,
+    'phone': 425px,
+    'tablet': 768px,
+    'desktop': 1024px,
+    'hd': 1920px,
+    '4k': 2560px
+  );
+  
+  @if(map-has-key($breakpoints, $start)) {
+    $start: map-get($breakpoints, $start);
+  } 
+  @if(map-has-key($breakpoints, $end)) {
+    $end: map-get($breakpoints, $end);
+  }
+  
+  $query: "";
+  @if $start == 0 {
+    $query: "(max-width: #{$end})";
+  } @else if $end == 0 {
+    $query: "(min-width: #{$start})";
+  } @else {
+    $query: "(min-width: #{$start}) and (max-width: #{$end})";
+  }
+
+  @media #{$query} {@content;}
+}

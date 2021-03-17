@@ -1,0 +1,58 @@
+<section id="project-detail" *ngIf="project">
+  <section id="project-detail__title">
+    <h1>{{project.title}}</h1>
+    <div>
+      <a [href]="project.demoLink" *ngIf="project.demoLink" target="_blank"><button>Demo</button></a>
+      <a [href]="project.codeLink" *ngIf="project.codeLink" target="_blank"><button>Code</button></a>
+      <a [href]="project.designLink" *ngIf="project.designLink" target="_blank"><button>Design</button></a>
+    </div>
+  </section>
+
+  <section id="project-detail__stack" *ngIf="project.techStack">
+    <h2 class="title-heading"><span class="arrow">< </span>Tech Stack<span class="arrow"> ></span></h2>
+    <div class="project-detail-content">
+      <div>
+        <div *ngFor="let tech of project.techStack">{{tech}}</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="project-detail__description" *ngIf="project.description">
+    <h2 class="title-heading"><span class="arrow">< </span>Description<span class="arrow"> ></span></h2>
+    <div class="project-detail-content">{{project.description}}</div>
+  </section>
+
+  <section id="project-detail__problem" *ngIf="project.problem">
+    <h2 class="title-heading"><span class="arrow">< </span>Problem<span class="arrow"> ></span></h2>
+    <div class="project-detail-content">{{project.problem}}</div>
+  </section>
+
+  <section id="project-detail__action" *ngIf="project.action">
+    <h2 class="title-heading"><span class="arrow">< </span>Action<span class="arrow"> ></span></h2>
+    <div class="project-detail-content">{{project.action}}</div>
+  </section>
+
+  <section id="project-detail__solution" *ngIf="project.solution">
+    <h2 class="title-heading"><span class="arrow">< </span>Solution<span class="arrow"> ></span></h2>
+    <div class="project-detail-content">{{project.solution}}</div>
+  </section>
+
+  <section id="project-detail__challenges" *ngIf="project.challenges">
+    <h2 class="title-heading"><span class="arrow">< </span>Challenges<span class="arrow"> ></span></h2>
+    <div class="project-detail-content" [innerHtml]="project.challenges | parseMarkdown"></div>
+  </section>
+
+  <section id="project-detail__futureGoals" *ngIf="project.futureGoals">
+    <h2 class="title-heading"><span class="arrow">< </span>Future Goals<span class="arrow"> ></span></h2>
+    <div class="project-detail-content" [innerHtml]="project.futureGoals | parseMarkdown"></div>
+  </section>
+
+  <section id="project-detail__video" *ngIf="project.videoLink">
+    <h2 class="title-heading"><span class="arrow">< </span>Video<span class="arrow"> ></span></h2>
+    <div class="project-detail-content">
+      <div class="video-frame">
+        <iframe [src]="project.videoLink | safeUrl" width="100%" height="100%" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+</section>

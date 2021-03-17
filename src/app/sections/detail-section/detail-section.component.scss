@@ -1,0 +1,107 @@
+@import "../../../variables";
+@import "../../../media";
+
+#project-detail {
+  color: $text-color-dark;
+
+  & > section {
+    margin-top: 1.875rem;
+    padding: 0;
+
+    & > .title-heading {
+      margin: 0;
+      padding: 0;
+      font-size: 1.875rem;
+      font-weight: 700;
+      text-align: unset;
+      text-shadow: none;
+      color: $contact-background;
+
+      @include media(0, tablet) {
+        font-size: 1.75rem;
+      }
+    }
+    & > .project-detail-content {
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-left: 1.25rem;
+
+      @include media(0, phone) {
+        &, ul {
+          margin-left: 0;
+        }
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 1.25rem;
+
+        & li {
+          margin-bottom: 0.625rem;
+
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &__title {
+    & > h1 {
+      margin: 0 0 1.875rem 0;
+      font-size: 2.25rem;
+      text-align: center;
+    }
+
+    & > div {
+      display: flex;
+      justify-content: center;
+
+      & > a {
+        margin-right: 1.25rem;
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+
+      &:empty {
+        display: none;
+      }
+    }
+  }
+
+  &__stack {
+    .project-detail-content > div {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+      gap: 0.625rem;
+      width: 100%;
+      text-shadow: none;
+      color: $text-color-light;
+
+      & > div {
+        padding: 0.475rem 0.5rem;
+        font-size: 1.5rem;
+        font-weight: 500;
+        text-align: center;
+        background: $secondary-button-color;
+
+        @include media(0, tablet) {
+          font-size: 1.275rem;
+        }
+      }
+    }
+  }
+
+  &__video {
+    .project-detail-content {
+      max-width: 75%;
+
+      @include media(0, tablet) {
+        max-width: 100%;
+      }
+    }
+  }
+}

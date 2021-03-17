@@ -8,6 +8,7 @@
 /bazel-out
 
 # dependencies
+/serverless-functions/node_modules
 /node_modules
 
 # profiling files
@@ -40,6 +41,7 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+serverless-functions/.env
 
 # System Files
 .DS_Store

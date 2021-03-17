@@ -1,0 +1,169 @@
+@import "../../../variables";
+@import "../../../media";
+
+$gradient-background : linear-gradient(
+  to bottom, $contact-background 0%, transparentize($contact-background, 1) 100%
+);
+
+#projects {
+  background: $projects-background;
+  
+  .project {
+    display: flex;
+    margin-bottom: 1.25rem;
+    text-shadow: $text-shadow;
+
+    @include media(0, 960px) {
+      flex-direction: column;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    &__thumbnail {
+      position: relative;
+      min-width: 22rem;
+      background: $gradient-background;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      box-shadow: inset 0 0 5rem $contact-background;
+
+      @include media(0, 960px) {
+        min-width: unset;
+        height: 12rem;
+      }
+
+      & > span {
+        display: flex;
+        height: 100%;
+        justify-content: center;
+
+        & > img {
+          width: 7.5rem;
+          opacity: 0.15;
+        }
+      }
+
+      & > div {
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        opacity: 0;
+        background: $gradient-background;
+        transition: opacity 0.3s ease-in-out;
+
+        & > a:first-of-type {
+          margin-bottom: 1rem;
+        }
+        & > a:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+
+      &:hover {
+        & > div {
+          opacity: 1;
+        }
+      }
+    }
+
+    &__info {
+      padding: 0.625rem;
+
+      & > h3 {
+        margin: 0 0 1.25rem 0;
+        font-size: 1.5rem;
+        font-weight: 700;
+        
+        & > a {
+          transition: color 0.15s ease-in-out;
+
+          &:hover {
+            color: $secondary-button-color;
+          }
+        }
+      }
+
+      & > div {
+        display: flex;
+
+        & > span {
+          margin-right: 0.625rem;
+          font-size: 1.25rem;
+          font-weight: 500;
+          white-space: nowrap;
+        }
+
+        &:empty {
+          display: none;
+        }
+      }
+
+      &__stack {
+        margin-bottom: 0.625rem;
+
+        & > div {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+          gap: 0.625rem;
+          width: 100%;
+          text-shadow: none;
+
+          & > div {
+            padding: 0.375rem 0.25rem;
+            font-size: 1rem;
+            font-weight: 500;
+            text-align: center;
+            background: $secondary-button-color;
+          }
+        }
+      }
+
+      &__description {
+        font-size: 1.15rem;
+        line-height: 1.375;
+
+        & > div > a {
+          font-style: italic;
+          font-weight: 600;
+          transition: color 0.15s ease-in-out;
+
+          &:hover {
+            color: $secondary-button-color;
+          }
+        }
+      }
+
+      &__buttons {
+        display: flex;
+        margin: 1.25rem 0 0 0;
+
+        a {
+          width: 100%;
+          margin-right: 1.25rem;
+
+          &:last-of-type {
+            margin: 0;
+          }
+
+          button {
+            width: 100%;
+            font-size: 1.25rem;
+            background: $projects-background;
+
+            &:hover {
+              background: $secondary-button-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+$text-accent: #28B1C3;
+$text-color-dark: #000000;
+$text-color-light: #ffffff;
+
+$danger-color: #900001;
+
+$skills-background: #DDDDDD;
+$projects-background: #3F3D56;
+$about-background: #218997;
+$contact-background: #222342;
+
+$primary-button-color: $about-background;
+$secondary-button-color: $contact-background;
+
+@function create-text-shadow($alpha: 0.25) {
+  @return 2px 2px 4px rgba(0, 0, 0, $alpha);
+}
+
+$text-shadow: create-text-shadow();
+

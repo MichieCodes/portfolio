@@ -1,0 +1,24 @@
+<section id="skills">
+  <h1 class="title-heading"><span class="arrow">< </span>Skills<span class="arrow"> ></span></h1>
+
+  <div class="section-container" *ngIf="skills">
+    <div id="filter-container">
+      <h3>Filter</h3>
+
+      <div>
+        <label class="filter-category" *ngFor="let category of categories">
+          <input type="radio" name="category" [value]="category" [(ngModel)]="selectedCategory"/>
+          <span><span></span></span>{{category}}
+        </label>
+      </div>
+    </div>
+
+    <div id="skills-container">
+      <div *ngFor="let skill of (skills | filterByCategory:selectedCategory)">{{skill.title}}</div>
+    </div>
+  </div>
+
+  <div class="section-container" style="display: flex;" *ngIf="!skills">
+    <h2 class="error-message">Could Not Load Skills</h2>
+  </div>
+</section>

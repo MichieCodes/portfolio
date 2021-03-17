@@ -1,1 +1,121 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./_variables.scss";
+@import "./_media.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  @include media(hd, 0) {
+    font-size: 1.75rem;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", arial, sans-serif;
+  color: $text-color-light;
+}
+
+section {
+  padding: 0 6.5rem 6.5rem;
+  
+  @include media(phone-small, 640px) {
+    padding: 0 2.15rem 2.15rem;
+  }
+  
+  @include media(0, phone-small) {
+    padding: 0 1.15rem 1.15rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+  width: 12rem;
+  font-family: "Montserrat", arial, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  border: 0;
+  outline: 0;
+  padding: 0.425rem 0;
+  color: $text-color-light;
+  background: $primary-button-color;
+  transition: background 0.15s ease-in-out;
+
+  &:hover {
+    background: $secondary-button-color;
+  }
+}
+
+.title-heading {
+  font-size: 2.25rem;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  padding: 1.875rem;
+  margin: 0;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  @include media(phone-small, phone) {
+    font-size: 2.15rem;
+  }
+  @include media(0, phone-small) {
+    font-size: 1.875rem;
+  }
+}
+
+.section-container {
+  background: transparentize($text-color-light, 0.7);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25), 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.arrow {
+  font-family: "Kufam", "Montserrat", arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: normal;
+}
+
+.close-btn {
+  cursor: pointer;
+  font-size: 1.375rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  opacity: 0.7;
+  transition: opacity 0.15s ease-in-out;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.error-message {
+  width: 100%;
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+
+.video-frame {
+  padding-top: 56.25%;
+  position: relative;
+  
+  & > iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0;
+  }
+}

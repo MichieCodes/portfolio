@@ -1,0 +1,147 @@
+@import "../../../variables";
+@import "../../../media";
+
+#skills {
+  color: $text-color-dark;
+  background: $skills-background;
+
+  @include media(0, desktop) {
+    .section-container {
+      display: flex;
+
+      #filter-container {
+        flex-direction: column;
+        justify-content: unset;
+        padding: 1.25rem;
+        font-size: 1.325rem;
+
+        & > h3 {
+          margin: 0 0 1.25rem 0;
+          align-self: baseline;
+        }
+
+        & > div {
+          flex-direction: column;
+
+          .filter-category {
+            margin: 0 0 0.75rem 0;
+          }
+        }
+      }
+    }
+  }
+
+  #filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2.5rem;
+    background: $text-color-light;
+    font-size: 1.25rem;
+
+    @include media(0, 700px) {
+      display: none;
+    }
+
+    h3 {
+      margin: 1.15rem 0;
+      font-weight: 700;
+    }
+
+    & > div {
+      display: flex;
+
+      .filter-category {
+        display: flex;
+        align-items: center;
+        margin-right: 1.15rem;
+        font-weight: 500;
+
+        &:last-child {
+          margin-right: 0;
+        }
+  
+        & > span {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 1.175rem;
+          height: 1.175rem;
+          margin-right: 5px;
+          border: 2px solid $text-color-dark;
+          border-radius: 50%;
+          background: $text-color-light;
+  
+          span {
+            display: none;
+            width: 70%;
+            height: 70%;
+            border-radius: 50%;
+            background: $text-accent;
+          }
+        }
+
+        input {
+          display: none;
+
+          &:checked ~ span > span {
+            display: block;
+          }
+        }
+      }
+    }
+
+  }
+
+  #skills-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 2.625rem);
+    gap: 1.25rem 1.875rem;
+    width: calc(100% - 6.5rem);
+    margin: 0 auto;
+    padding: 1.25rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-align: center;
+    color: $text-color-light;
+
+    @include media(phone, desktop) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(7, 2.625rem);
+    }
+    @include media(700px, 830px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(10, 2.625rem);
+    }
+    @include media(0, phone) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(10, 2.625rem);
+    }
+    @include media(0, 700px) {
+      padding: 1.25rem 0;
+      gap: 1.25rem 1.25rem;
+
+      & > div {
+        font-size: 1.125rem;
+      }
+    }
+    @include media(phone-small, 640px) {
+      width: calc(100% - 2.15rem);
+    }
+    @include media(0, phone-small) {
+      width: calc(100% - 1.15rem);
+    }
+
+    & > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: $primary-button-color;
+    }
+  }
+
+  .error-message {
+    text-shadow: $text-shadow;
+  }
+}

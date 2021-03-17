@@ -1,0 +1,114 @@
+@import "../../../variables";
+@import "../../../media";
+
+:host {
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+}
+
+.overlay {
+  cursor: pointer;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.5);
+  animation: overlay-fade-in 0.20s ease-in-out;
+}
+
+.modal {
+  user-select: none;
+  position: fixed;
+  min-width: 50vw;
+  width: 50vw;
+  height: min-content;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5), 0px 4px 1rem rgba(0, 0, 0, 0.6);
+  z-index: 100000;
+  animation: modal-fade-in 0.20s ease-in-out;
+  background: $about-background;
+
+  @include media(tablet, 1440px) {
+    max-width: unset;
+    width: 60vw;
+  }
+  @include media(640px, tablet) {
+    width: calc(100vw - 2 * 6.5rem);
+  }
+  @include media(0, 640px) {
+    width: calc(100vw - 2 * 2.15rem);
+  }
+  @include media(0, phone-small) {
+    width: calc(100vw - 2 * 1rem);
+  }
+  
+
+  &__header {
+    position: relative;
+    margin: 0;
+    padding: 0.625rem;
+    font-size: 1.875rem;
+    font-weight: 600;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: $contact-background;
+
+    @include media(640px, tablet) {
+      font-size: 1.75rem;
+    }
+    @include media(0, 640px) {
+      font-size: 1.5rem;
+    }
+
+    &__close {
+      position: absolute;
+      right: 0.625rem;
+      top: calc(0.625rem - 5px);
+    }
+  }
+
+  &__container {
+    padding: 1.25rem;
+    border: 5px solid $contact-background;
+    border-top: 0;
+
+    &__content {
+      & > img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@keyframes overlay-fade-in {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+@keyframes modal-fade-in {
+  from {opacity: 0; margin-top: 5%}
+  to {opacity: 1; margin-top: 0}
+}
+@keyframes overlay-fade-out {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+@keyframes modal-fade-out {
+  from {opacity: 1; margin-top: 0}
+  to {opacity: 0; margin-top: 5%}
+}
+
+.overlay-fade-out {
+  opacity: 0;
+  animation: overlay-fade-out 0.20s ease-in-out;
+}
+.modal-fade-out {
+  opacity: 0;
+  margin-top: 5%;
+  animation: modal-fade-out 0.20s ease-in-out;
+}

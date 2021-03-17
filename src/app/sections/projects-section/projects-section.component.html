@@ -1,0 +1,47 @@
+<section id="projects">
+  <h1 class="title-heading"><span class="arrow">< </span>Projects<span class="arrow"> ></span></h1>
+
+  <div *ngIf="projects">
+    <div class="project section-container" *ngFor="let project of projects">
+      <div class="project__thumbnail" [style.background-image]="project.image && 'url(' + project.image.large.url + ')'">
+        <span *ngIf="!project.image">
+          <img src="/assets/logo.svg" alt="Logo Watermark">
+        </span>
+        <div>
+          <a *ngIf="project.image"><button (click)="onOpenModal('image', project)">Enlarge Image</button></a>
+          <a [routerLink]="'/project/' + project.slug"><button>Read More</button></a>
+        </div>
+      </div>
+      <div class="project__info">
+        <h3><a [routerLink]="'/project/' + project.slug">{{project.title}}</a></h3>
+
+        <div class="project__info__stack" *ngIf="project.techStack">
+          <span>Tech Stack:&nbsp;&nbsp;</span>
+          <div>
+            <div *ngFor="let tech of project.techStack">{{tech}}</div>
+          </div>
+        </div>
+        <div class="project__info__description" *ngIf="project.description">
+          <span>Description:</span>
+          <div>
+            <span>{{project.description | truncate : 170}}</span>
+            <br/><a [routerLink]="'/project/' + project.slug">Read More</a>
+          </div>
+        </div>
+        <div class="project__info__buttons">
+          <a [href]="project.demoLink" *ngIf="project.demoLink" target="_blank"><button>Demo</button></a>
+          <a *ngIf="project.videoLink"><button (click)="onOpenModal('video', project)">Video</button></a>
+          <a [href]="project.codeLink" *ngIf="project.codeLink" target="_blank"><button>Code</button></a>
+          <a [href]="project.designLink" *ngIf="project.designLink" target="_blank"><button>Design</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!projects">
+    <div class="project section-container">
+      <h1 class="error-message">Could not Load Projects</h1>
+    </div>
+  </div>
+
+</section>

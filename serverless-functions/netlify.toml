@@ -1,0 +1,12 @@
+[build]
+  functions = "routes"
+[[redirects]]
+  from = "/"
+  to = "/.netlify/functions/projects"
+  status = 200
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+[dev]
+  autoLaunch = false

@@ -1,0 +1,103 @@
+@import "../../../variables";
+@import "../../../_media";
+
+#contact {
+  background: $contact-background;
+
+  form {
+    padding: 0.625rem;
+
+    & > div {
+      display: flex;
+      margin-bottom: 1.25rem;
+      
+      & > span {
+        width: 100%;
+        
+        &:first-child {
+          margin-right: 1.25rem;
+        }
+      }
+
+      @include media(0, 640px) {
+        display: block;
+
+        & > span {
+          display: block;
+
+          &:first-child {
+            margin: 0 0 1.25rem 0;
+          }
+        }
+      }
+    }
+
+    & > span {
+      display: block;
+      margin-bottom: 1.25rem;
+    }
+    
+    & > span > span, & > div > span > span {
+      margin-top: 0.325rem;
+      display: block;
+    }
+
+    label {
+      width: 100%;
+
+      & > span {
+        display: block;
+        margin-bottom: 0.625rem;
+        font-size: 1.5rem;
+        font-weight: 500;
+        text-shadow: $text-shadow;
+      }
+
+      & > input, & > textarea {
+        width: 100%;
+        padding: 5px;
+        font-family: "Montserrat", arial, sans-serif;
+        font-size: 1.25rem;
+        box-sizing: border-box;
+        border: 2px solid $contact-background;
+        outline: none;
+        transition: border 0.15s ease-in-out;
+
+        &.ng-invalid.ng-touched {
+          border: 2px solid $danger-color;
+        }
+
+        &:focus {
+          border: 2px solid $text-accent;
+        }
+      }
+
+      & > textarea {
+        resize: none;
+      }
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      font-size: 1.75rem;
+      font-weight: 700;
+      text-shadow: $text-shadow;
+      background: $text-accent;
+      transition: opacity,background 0.15s ease-in-out;
+
+      &.danger {
+        background: $danger-color;
+      }
+
+      &:hover, &:disabled {
+        background: $contact-background;
+      }
+
+      &:disabled {
+        cursor: wait;
+        opacity: 0.5;
+      }
+    }
+  }
+}
