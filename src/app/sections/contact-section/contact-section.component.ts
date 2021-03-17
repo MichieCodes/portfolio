@@ -42,7 +42,12 @@ export class ContactSectionComponent implements OnInit {
 
       setTimeout(() => {
         this.buttonText = 'Submit';
-        data.ok && this.contactForm.reset();
+        data.ok && this.contactForm.reset({
+          fullName: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
       }, !data.ok ? 2000 : 1000);
     });
   }
