@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "serve": "cd serverless-functions && netlify dev"
+    "serve": "cd serverless-functions && netlify dev",
+    "deploy": "ng build --prod --base-href https://michietuts.github.io/portfolio/ && ngh --dir=dist/portfolio-site"
   },
   "private": true,
   "dependencies": {
