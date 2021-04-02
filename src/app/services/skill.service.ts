@@ -19,7 +19,6 @@ export class SkillService {
 
   getSkills() : Observable<Skill[]> {
     if(!this.skills) {
-      console.log('FROM SERVER: SKILL_LIST');
       return this.http.get<Skill[]>(URL).pipe(
         catchError((err : HttpErrorResponse) => HttpErrorHandler(err, 'Could not Retrieve Skills')),
         map((skills : Skill[]) => this.skills = skills)

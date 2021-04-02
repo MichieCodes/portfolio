@@ -19,7 +19,6 @@ export class ProjectService {
 
   getProjects() : Observable<Project[]> {
     if(!this.projects) {
-      console.log('FROM SERVER: PROJECT_LIST');
       return this.http.get<Project[]>(URL).pipe(
         catchError((err : HttpErrorResponse) => HttpErrorHandler(err, 'Could not Retrieve Projects')),
         map((projects : Project[]) => this.projects = projects)
@@ -34,7 +33,6 @@ export class ProjectService {
 
   getProjectBySlug(slug : string) : Observable<Project[]> {
     if(!this.projects) {
-      console.log('FROM SERVER: PROJECT_BY_SLUG');
       return this.http.get<Project[]>(`${URL}?slug="${slug}"`).pipe(
         catchError((err : HttpErrorResponse) => HttpErrorHandler(err, 'Could not Retrieve Project')),
       );

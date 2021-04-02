@@ -7,7 +7,6 @@ import { Skill } from '../models/skill';
 export class FilterByCategoryPipe implements PipeTransform {
 
   transform(skills: Skill[], category: string): Skill[] {
-    console.log('kdok', category)
     if(category === 'All') return skills;
     return skills.filter((skill) => skill.category.includes(category));
   }
