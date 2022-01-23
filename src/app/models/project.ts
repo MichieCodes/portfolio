@@ -1,19 +1,9 @@
-interface Image {
-  url: string,
-  width: number,
-  height: number
-}
-
-export interface ProjectImage {
-  small: Image,
-  large: Image,
-  full: Image
-}
+import { AirtableImage } from "./airtable-image";
 
 export interface Project {
   title: string,
   slug: string,
-  image?: ProjectImage,
+  image?: AirtableImage,
   techStack: string[],
   description: string,
   designLink?: string,

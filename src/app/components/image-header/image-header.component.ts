@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProjectImage } from 'src/app/models/project';
+import { AirtableImage } from 'src/app/models/airtable-image';
 
 @Component({
   selector: 'app-image-header',
@@ -8,7 +8,7 @@ import { ProjectImage } from 'src/app/models/project';
   styleUrls: ['./image-header.component.scss']
 })
 export class ImageHeaderComponent implements OnInit {
-  @Input() image : ProjectImage | undefined;
+  @Input() image : AirtableImage | undefined;
 
   constructor(private router : Router) { }
 
