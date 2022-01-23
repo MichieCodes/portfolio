@@ -24,6 +24,7 @@ import { TruncatePipe } from './pipes/truncate.pipe';
 import { ParseMarkdownPipe } from './pipes/parse-markdown.pipe';
 import { SafeUrlPipe } from './pipes/safe-url.pipe';
 import { PathResolverPipe } from './pipes/path-resolver.pipe';
+import { ExperienceSectionComponent } from './sections/experience-section/experience-section.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { PathResolverPipe } from './pipes/path-resolver.pipe';
     ParseMarkdownPipe,
     SafeUrlPipe,
     PathResolverPipe,
+    ExperienceSectionComponent,
   ],
   imports: [
     BrowserModule,
