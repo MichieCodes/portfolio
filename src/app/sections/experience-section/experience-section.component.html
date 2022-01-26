@@ -1,8 +1,26 @@
 <section id="experience">
   <h1 class="title-heading"><span class="arrow">< </span>Experience<span class="arrow"> ></span></h1>
 
-  <div *ngIf="true">
-    <div class="project section-container">
+  <div *ngIf="experienceList">
+    <div class="experience section-container" *ngFor="let experience of experienceList">
+      <div class="experience__info">
+        <div class="experience__info__company">
+          <h3>{{experience.company}}</h3>
+          <span>{{experience | getDateRange}}</span>
+        </div>
+
+        <h4>{{experience.role}}</h4>
+
+        <div
+          class="experience__info__description"
+          [innerHtml]="experience.description | parseMarkdown">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!experienceList">
+    <div class="experience section-container">
       <h1 class="error-message">Could not Load Experience</h1>
     </div>
   </div>
