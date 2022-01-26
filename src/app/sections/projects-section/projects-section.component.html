@@ -40,8 +40,8 @@
 
   <div *ngIf="!projects">
     <div class="project section-container">
-      <h1 class="error-message">Could not Load Projects</h1>
+      <h1 class="error-message" *ngIf="loading">Loading Projects...</h1>
+      <h1 class="error-message" *ngIf="!loading">Could not Load Projects</h1>
     </div>
   </div>
-
 </section>
