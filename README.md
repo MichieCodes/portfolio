@@ -1,10 +1,9 @@
 <p align="center">
-  <h3 align="center">Portfolio Site</h3>
+  <h1 align="center" style="border: 0; padding-bottom:0;">Portfolio Site</h1>
 
   <p align="center">
     A Showcase of my Skills, Experience, and Projects
   </p>
-  <br/>
   <br/>
 </p>
 
@@ -27,11 +26,11 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 Create an Airtable Base:
-  * Create `Skills` Table
+  * Create 'Skills' Table
       * `title` (text), `category` (multiple select)
-   * Create `Experience` Table &  `Main View` View
+   * Create 'Experience' Table &  'Main View' View
       * `company` (text), `role` (text), `description` (rich text), `startDate` (text), `endDate` (text)
-   * Create `Projects` Table &  `Main View` View
+   * Create 'Projects' Table &  'Main View' View
       * `title` (text), `slug` (text), `image` (attachment), `techStack` (multiple select), `description` (text), `designLink` (url), `codeLink` (url), `videoLink` (url), `demoLink` (url), `problem` (text), `action` (text), `solution` (text), `challenges` (rich text), `futureGoals` (rich text)
 
 ### Installation
