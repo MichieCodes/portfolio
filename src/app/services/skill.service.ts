@@ -3,11 +3,11 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
-import { CheckHttps } from '../utils/detect-protocol';
+import { environment } from 'src/environments/environment';
 import { HttpErrorHandler } from '../utils/http-error-handler.util';
 import { Skill } from '../models/skill';
 
-const URL : string = CheckHttps() ? 'https://michie-portfolio.netlify.app/skills' : 'http://localhost:8888/skills';
+const URL : string = `${environment.API_BASE_URL}/skills`;
 
 @Injectable({
   providedIn: 'root'

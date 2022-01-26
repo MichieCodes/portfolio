@@ -41,7 +41,10 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+
+# env
 serverless-functions/.env
+src/environments/environment.prod.ts
 
 # System Files
 .DS_Store
