@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Project } from 'src/app/models/project';
 import { ModalInfo } from 'src/app/models/modal-info';
+import { ProjectService } from 'src/app/services/project.service';
 
 @Component({
   selector: 'app-projects-section',
@@ -13,12 +14,15 @@ export class ProjectsSectionComponent implements OnInit {
   @Output() openModal : EventEmitter<ModalInfo> = new EventEmitter();
 
   projects : Project[] | undefined;
+  loading : boolean = true;
 
-  constructor(private route : ActivatedRoute) {
-    this.route.data.subscribe((data) => {
-      if(data.projects?.length) {
-        this.projects = data.projects;
+  constructor(private projectService : ProjectService) {
+    this.projectService.getProjects().subscribe((projects) => {
+      if(projects?.length) {
+        this.projects = projects;
       }
+
+      this.loading = false;
     });
   }
 

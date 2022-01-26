@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
+import { SkillService } from 'src/app/services/skill.service';
 import { Skill } from 'src/app/models/skill';
 
 @Component({
@@ -13,13 +13,17 @@ export class SkillsSectionComponent implements OnInit {
   categories : string[] = ['All', 'Languages', 'Frameworks', 'OS', 'Databases', 'Other'];
   selectedCategory : string = this.categories[0];
 
-  constructor(private route : ActivatedRoute) {
-    this.route.data.subscribe((data) => {
-      if(data.skills?.length) {
-        this.skills = data.skills;
+  loading : boolean = true;
+
+  constructor(private skillsService : SkillService) {
+    this.skillsService.getSkills().subscribe((skills) => {
+      if(skills?.length) {
+        this.skills = skills;
       }
+
+      this.loading = false;
     });
   }
 
-  ngOnInit() : void {}
+  ngOnInit() : void { }
 }

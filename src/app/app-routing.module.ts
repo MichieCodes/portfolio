@@ -12,8 +12,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: PortfolioComponent,
-    resolve: {projects: ProjectResolver, skills: SkillResolver}
+    component: PortfolioComponent
   },
   {path: 'home', redirectTo: '/#home'},
   {path: 'skills', redirectTo: '/#skills'},
