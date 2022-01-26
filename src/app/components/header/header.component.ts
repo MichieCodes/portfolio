@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
   links : NavLink[] = [
     {title: 'Home', path: ''},
     {title: 'Skills', path: 'skills'},
+    {title: 'Experience', path: 'experience'},
     {title: 'Projects', path: 'projects'},
     {title: 'About', path: 'about'},
     {title: 'Contact', path: 'contact'}

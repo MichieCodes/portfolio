@@ -19,12 +19,13 @@ import { ContactSectionComponent } from './sections/contact-section/contact-sect
 import { ImageHeaderComponent } from './components/image-header/image-header.component';
 import { DetailSectionComponent } from './sections/detail-section/detail-section.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { ExperienceSectionComponent } from './sections/experience-section/experience-section.component';
 import { FilterByCategoryPipe } from './pipes/filter-by-category.pipe';
 import { TruncatePipe } from './pipes/truncate.pipe';
 import { ParseMarkdownPipe } from './pipes/parse-markdown.pipe';
 import { SafeUrlPipe } from './pipes/safe-url.pipe';
 import { PathResolverPipe } from './pipes/path-resolver.pipe';
-import { ExperienceSectionComponent } from './sections/experience-section/experience-section.component';
+import { GetDateRangePipe } from './pipes/get-date-range.pipe';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { ExperienceSectionComponent } from './sections/experience-section/experi
     SafeUrlPipe,
     PathResolverPipe,
     ExperienceSectionComponent,
+    GetDateRangePipe,
   ],
   imports: [
     BrowserModule,
