@@ -3,11 +3,11 @@ require('dotenv').config();
 
 const Base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base(process.env.AIRTABLE_BASE);
 
-function getAll(base, view = 'Grid View') {
+function getAll(base, view = 'Grid View', fields = []) {
   return new Promise((resolve, reject) => {
     let result = [];
 
-    Base(base).select({view}).eachPage(
+    Base(base).select({view, fields}).eachPage(
       function page(records, fetchNextPage) {
         records.forEach(function(record) {
           if(record.fields.image) record.fields.image = record.fields.image[0].thumbnails
@@ -28,9 +28,9 @@ function getAll(base, view = 'Grid View') {
   })
 }
 
-function getByFormula(base, view, formula) {
+function getByFormula(base, view, formula, fields = []) {
   return new Promise((resolve, reject) => {
-    Base(base).select({view, filterByFormula: formula}).firstPage(function(err, records) {
+    Base(base).select({view, filterByFormula: formula, fields}).firstPage(function(err, records) {
       if(err) {
         console.error(err);
         reject(err);
