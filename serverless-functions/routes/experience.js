@@ -3,7 +3,7 @@ const { getAll } = require("../airtable");
 exports.handler = async function(e) {
   if(e.httpMethod !== 'GET') return {statusCode: 405, body: JSON.stringify([])};
 
-  const fields = ['company', 'role', 'image', 'description', 'startDate', 'endDate'];
+  const fields = ['company', 'role', 'description', 'startDate', 'endDate'];
 
   try {
     return {
