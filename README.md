@@ -1,5 +1,5 @@
 <p align="center">
-  <h1 align="center" style="border: 0; padding-bottom:0;">Portfolio Site</h1>
+  <h1 align="center">Portfolio Site</h1>
 
   <p align="center">
     A Showcase of my Skills, Experience, and Projects
