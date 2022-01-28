@@ -47,28 +47,19 @@
 			}
 		}
 		
-		& > div > a {
-			&:first-child {
-				margin-right: 1.25rem;
-			}
+		&__action {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1rem;
 
-			@include media(640px, desktop) {
-				&:first-child {
-					margin-right: 1rem;
-				}
-				
-				& > button {
+			& > a > button {
+				@include media(640px, desktop) {
 					width: 9rem;
 				}
-			}
-			@include media(0, 960px) {
-				& > button {
-					// font-size: 1.25rem;
+				@include media(0, 960px) {
 					width: 7rem;
 				}
-			}
-			@include media(640px, 830px) {
-				& > button {
+				@include media(640px, 830px) {
 					width: 6rem;
 				}
 			}
