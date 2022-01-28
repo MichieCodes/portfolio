@@ -11,6 +11,7 @@ exports.handler = async function(e) {
       body: JSON.stringify(await getAll('Experience', 'Main View', fields)),
       headers: {
         'access-control-allow-origin': '*',
+        'content-type': 'application/json',
         'cache-control': 's-maxage=120, immutable'
       }
     };
