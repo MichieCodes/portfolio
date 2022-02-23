@@ -10,7 +10,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "serve": "cd serverless-functions && netlify dev",
-    "deploy": "ng build --prod --base-href https://michiecodes.github.io/portfolio/ && ngh --dir=dist/portfolio-site"
+    "deploy": "ng build --prod --base-href https://michiecodes.github.io/portfolio/ && ngh --dir=dist/portfolio-site",
+    "fe:deploy": "ng deploy --base-href=/portfolio/"
   },
   "private": true,
   "dependencies": {
@@ -36,7 +37,7 @@
     "@types/dompurify": "^2.2.1",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
-    "angular-cli-ghpages": "^1.0.0-rc.1",
+    "angular-cli-ghpages": "^1.0.0",
     "codelyzer": "^6.0.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
