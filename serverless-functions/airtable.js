@@ -36,9 +36,14 @@ function getByFormula(base, view, formula, fields = []) {
         reject(err);
         return;
       }
-      let result = records[0].fields;
-      if(result.image) result.image = result.image[0].thumbnails;
-      resolve([result]);
+
+      try {
+        let result = records[0].fields;
+        if(result.image) result.image = result.image[0].thumbnails;
+        resolve([result]);
+      } catch(error) {
+        reject(error)
+      }
     })
   })
 }
