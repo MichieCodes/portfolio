@@ -7,7 +7,8 @@ import { environment } from 'src/environments/environment';
 import { HttpErrorHandler } from '../utils/http-error-handler.util';
 import { Project } from '../models/project';
 
-const URL : string = `${environment.API_BASE_URL}/projects`;
+const ALL_URL : string = `${environment.API_BASE_URL}/projects`;
+const QUERY_URL : string = `${environment.API_BASE_URL}/project?slug=`;
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class ProjectService {
 
   getProjects() : Observable<Project[]> {
     if(!this.projects) {
-      return this.http.get<Project[]>(URL).pipe(
+      return this.http.get<Project[]>(ALL_URL).pipe(
         catchError((err : HttpErrorResponse) => HttpErrorHandler(err, 'Could not Retrieve Projects')),
         map((projects : Project[]) => this.projects = projects)
       );
@@ -33,7 +34,7 @@ export class ProjectService {
 
   getProjectBySlug(slug : string) : Observable<Project[]> {
     if(!this.projects) {
-      return this.http.get<Project[]>(`${URL}?slug="${slug}"`).pipe(
+      return this.http.get<Project[]>(`${QUERY_URL}"${slug}"`).pipe(
         catchError((err : HttpErrorResponse) => HttpErrorHandler(err, 'Could not Retrieve Project')),
       );
     }
