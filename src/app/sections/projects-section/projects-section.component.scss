@@ -130,13 +130,32 @@ $gradient-background : linear-gradient(
         font-size: 1.15rem;
         line-height: 1.375;
 
-        & > div > a {
-          font-style: italic;
-          font-weight: 600;
-          transition: color 0.15s ease-in-out;
+        & > div {
+          & > span {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            overflow: hidden;
 
-          &:hover {
-            color: $secondary-button-color;
+            @include media(0, 500px) {
+              -webkit-line-clamp: 12;
+              line-clamp: 12;
+            }
+            @include media(500px, 1200px) {
+              -webkit-line-clamp: 5;
+              line-clamp: 5;
+            }
+          }
+
+          & > a {
+            font-style: italic;
+            font-weight: 600;
+            transition: color 0.15s ease-in-out;
+
+            &:hover {
+              color: $secondary-button-color;
+            }
           }
         }
       }

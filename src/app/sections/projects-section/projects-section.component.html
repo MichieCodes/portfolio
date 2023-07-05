@@ -24,8 +24,8 @@
         <div class="project__info__description" *ngIf="project.description">
           <span>Description:</span>
           <div>
-            <span>{{project.description | truncate : 170}}</span>
-            <br/><a [routerLink]="'/project/' + project.slug">Read More</a>
+            <span>{{project.description | truncate : 300}}</span>
+            <a [routerLink]="'/project/' + project.slug">Read More</a>
           </div>
         </div>
         <div class="project__info__buttons">
