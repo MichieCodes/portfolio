@@ -9,7 +9,7 @@ exports.handler = async function(e) {
     if(!slug)
       throw new Error('Project slug is required');
 
-    const result = await getByFormula('Projects', 'Main View', `slug = ${slug}`);
+    const result = await getByFormula('Projects', 'Main View', `slug = '${slug}'`);
 
     return {
       statusCode: 200,
