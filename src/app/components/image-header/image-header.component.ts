@@ -1,18 +1,18 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { AirtableImage } from 'src/app/models/airtable-image';
+
+import { AirtableImage } from '../../models/airtable-image';
 
 @Component({
   selector: 'app-image-header',
+  standalone: true,
   templateUrl: './image-header.component.html',
   styleUrls: ['./image-header.component.scss']
 })
-export class ImageHeaderComponent implements OnInit {
+export class ImageHeaderComponent {
   @Input() image : AirtableImage | undefined;
 
   constructor(private router : Router) { }
-
-  ngOnInit() : void { }
 
   back() : void {
     this.router.navigateByUrl('/#projects');

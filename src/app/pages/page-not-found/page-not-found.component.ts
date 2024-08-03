@@ -1,17 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Component } from '@angular/core';
+
+import { HeaderComponent } from '../../components/header/header.component';
 
 @Component({
   selector: 'app-page-not-found',
+  standalone: true,
+  imports: [HeaderComponent],
   templateUrl: './page-not-found.component.html',
   styleUrls: ['./page-not-found.component.scss']
 })
-export class PageNotFoundComponent implements OnInit {
-
-  constructor(private titleService: Title) { }
-
-  ngOnInit(): void {
-    this.titleService.setTitle('404 | Page Not Found');
-  }
-
-}
+export class PageNotFoundComponent { }

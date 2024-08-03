@@ -67,7 +67,7 @@
 
         @include media(0, tablet) {
           width: 100%;
-  
+
           button {
             width: 100%;
           }
@@ -87,7 +87,7 @@
   &__stack {
     .project-detail-content > div {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(10.4rem, 1fr));
       gap: 0.625rem;
       width: 100%;
       text-shadow: none;
@@ -98,6 +98,7 @@
         font-size: 1.5rem;
         font-weight: 500;
         text-align: center;
+        white-space: nowrap;
         background: $secondary-button-color;
 
         @include media(0, tablet) {

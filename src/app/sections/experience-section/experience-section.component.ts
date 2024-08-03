@@ -1,15 +1,19 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
-import { Experience } from 'src/app/models/experience';
-import { ExperienceService } from 'src/app/services/experience.service';
+import { Experience } from '../../models/experience';
+import { GetDateRangePipe } from '../../pipes/get-date-range.pipe';
+import { ParseMarkdownPipe } from '../../pipes/parse-markdown.pipe';
+import { ExperienceService } from '../../services/experience.service';
 
 @Component({
   selector: 'app-experience-section',
+  standalone: true,
+  imports: [GetDateRangePipe, ParseMarkdownPipe],
   templateUrl: './experience-section.component.html',
   styleUrls: ['./experience-section.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ExperienceSectionComponent implements OnInit {
+export class ExperienceSectionComponent {
   experienceList : Experience[] | undefined;
   loading : boolean = true;
 
@@ -22,6 +26,4 @@ export class ExperienceSectionComponent implements OnInit {
       this.loading = false;
     });
   }
-
-  ngOnInit(): void { }
 }

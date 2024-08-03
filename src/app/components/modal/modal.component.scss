@@ -47,7 +47,7 @@
   @include media(0, phone-small) {
     width: calc(100vw - 2 * 1rem);
   }
-  
+
 
   &__header {
     position: relative;
@@ -84,23 +84,6 @@
       }
     }
   }
-}
-
-@keyframes overlay-fade-in {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-@keyframes modal-fade-in {
-  from {opacity: 0; margin-top: 5%}
-  to {opacity: 1; margin-top: 0}
-}
-@keyframes overlay-fade-out {
-  from {opacity: 1;}
-  to {opacity: 0;}
-}
-@keyframes modal-fade-out {
-  from {opacity: 1; margin-top: 0}
-  to {opacity: 0; margin-top: 5%}
 }
 
 .overlay-fade-out {

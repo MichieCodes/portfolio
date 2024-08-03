@@ -6,23 +6,23 @@
       <div>
         <span>
           <label><span>Full Name *</span><input type="text" formControlName="fullName" required></label>
-          <span *ngIf="fullName.invalid && fullName.touched">Full Name is Required</span>
+          @if (fullName.invalid && fullName.touched) {<span>Full Name is Required</span>}
         </span>
         <span>
           <label><span>Email *</span><input type="email" formControlName="email" required></label>
-          <span *ngIf="email.invalid && email.touched">Please Enter a Valid Email</span>
+          @if (email.invalid && email.touched) {<span>Please Enter a Valid Email</span>}
         </span>
       </div>
       <span><label><span>Subject</span><input type="text" formControlName="subject"></label></span>
       <span>
         <label><span>Message *</span><textarea rows="4" formControlName="message" required></textarea></label>
-        <span *ngIf="message.invalid && message.touched">Message is Required</span>
+        @if (message.invalid && message.touched) {<span>Message is Required</span>}
       </span>
 
-      <button 
-        type="submit" 
-        [class.danger]="buttonText === 'Failed to Submit'" 
-        [disabled]="buttonText === 'Submitting' || contactForm.invalid"
+      <button
+        type="submit"
+        [class.danger]="buttonText === 'Failed to Submit'"
+        [disabled]="isDisabled"
       >
         {{buttonText}}
       </button>

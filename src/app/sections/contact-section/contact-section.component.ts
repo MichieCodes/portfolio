@@ -1,28 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
-import { ContactService } from 'src/app/services/contact.service';
-import { NonEmptyValidator } from 'src/app/utils/non-empty-validator.util';
+import { ContactForm } from '../../models/contact-form';
+import { ContactService } from '../../services/contact.service';
+import { NonEmptyValidator } from '../../utils/non-empty-validator.util';
 
 @Component({
   selector: 'app-contact-section',
+  standalone: true,
+  imports: [ReactiveFormsModule],
   templateUrl: './contact-section.component.html',
   styleUrls: ['./contact-section.component.scss']
 })
-export class ContactSectionComponent implements OnInit {
+export class ContactSectionComponent {
   buttonText : 'Submit' | 'Submitting' | 'Submitted' | 'Failed to Submit' = 'Submit';
-  contactForm! : FormGroup;
+  disabledButtons = ['Submitting', 'Submitted'];
+  contactForm = new FormGroup({
+    fullName: new FormControl('', [Validators.required, NonEmptyValidator]),
+    email: new FormControl('', Validators.email),
+    subject: new FormControl(''),
+    message: new FormControl('', [Validators.required, NonEmptyValidator])
+  });
 
-  constructor(private contactService : ContactService, private formBuilder : FormBuilder) { }
-
-  ngOnInit() : void { 
-    this.contactForm = this.formBuilder.group({
-      fullName: new FormControl('', [Validators.required, NonEmptyValidator]),
-      email: new FormControl('', Validators.email),
-      subject: new FormControl(''),
-      message: new FormControl('', [Validators.required, NonEmptyValidator])
-    });
-  }
+  constructor(private contactService : ContactService) { }
 
   get fullName() : FormControl {
     return this.contactForm.get('fullName') as FormControl;
@@ -34,10 +34,18 @@ export class ContactSectionComponent implements OnInit {
     return this.contactForm.get('message') as FormControl;
   }
 
+  get isDisabled() {
+    return this.disabledButtons.includes(this.buttonText) || this.contactForm.invalid;
+  }
+
   submit() {
     this.buttonText = 'Submitting';
 
-    this.contactService.submit(this.contactForm.value).subscribe((data) => {
+    if(this.contactForm.invalid) {
+      this.buttonText = 'Submit';
+    }
+
+    this.contactService.submit(this.contactForm.value as ContactForm).subscribe((data) => {
       this.buttonText = !data.ok ? 'Failed to Submit' : 'Submitted';
 
       setTimeout(() => {

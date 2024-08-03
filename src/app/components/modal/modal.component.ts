@@ -1,26 +1,25 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, viewChild } from '@angular/core';
 
-import { ModalInfo } from 'src/app/models/modal-info';
-import { AnimateElement } from 'src/app/utils/animate-element';
+import { ModalInfo } from '../../models/modal-info';
+import { SafeUrlPipe } from '../../pipes/safe-url.pipe';
+import { AnimateElement } from '../../utils/animate-element';
 
 @Component({
   selector: 'app-modal',
+  standalone: true,
+  imports: [SafeUrlPipe],
   templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.scss']
+  styleUrls: ['./modal.component.scss'],
 })
-export class ModalComponent implements OnInit {
+export class ModalComponent {
   @Input() info! : ModalInfo;
   @Output() close : EventEmitter<void> = new EventEmitter();
-  @ViewChild('Modal') Modal! : ElementRef;
-  @ViewChild('Overlay') Overlay! : ElementRef;
-  
-  constructor() { }
-
-  ngOnInit() : void { }
+  modal = viewChild<ElementRef>('Modal');
+  overlay = viewChild<ElementRef>('Overlay');
 
   onClose() {
-    AnimateElement(this.Modal.nativeElement, () => {
-      AnimateElement(this.Overlay.nativeElement, () => this.close.emit(), 'overlay-fade-out');
+    AnimateElement(this.modal()?.nativeElement, () => {
+      AnimateElement(this.overlay()?.nativeElement, () => this.close.emit(), 'overlay-fade-out');
     }, 'modal-fade-out');
   }
 }

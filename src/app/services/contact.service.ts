@@ -9,9 +9,7 @@ import { HttpErrorHandler } from '../utils/http-error-handler.util';
 
 const URL = 'https://formspree.io/f/xpzogvko';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class ContactService {
   constructor(private http : HttpClient) { }
 
