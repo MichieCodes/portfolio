@@ -1,6 +1,7 @@
 import { ActivatedRouteSnapshot, Routes } from '@angular/router';
 import { inject } from '@angular/core';
 
+import { clock } from './utils/clock';
 import { ProjectService } from './services/project.service';
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
@@ -25,6 +26,10 @@ export const routes: Routes = [
     resolve: {
       project: (route: ActivatedRouteSnapshot) =>
         inject(ProjectService).getProjectBySlug(route.paramMap.get('slug')!),
+      scrollBehavior: async () => {
+        (<HTMLElement>document.body.parentElement).style.scrollBehavior = 'unset';
+        await clock(0);
+      }
     }
   },
   {
