@@ -4,6 +4,10 @@
 #about {
   background: $about-background;
 
+  .section-container {
+    background: transparentize($text-color-light, 0.8);
+  }
+
   p {
     padding: 1rem;
     font-size: 1.5rem;

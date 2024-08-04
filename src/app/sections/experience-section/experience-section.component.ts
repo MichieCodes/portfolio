@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { Experience } from '../../models/experience';
 import { GetDateRangePipe } from '../../pipes/get-date-range.pipe';
@@ -11,7 +11,6 @@ import { ExperienceService } from '../../services/experience.service';
   imports: [GetDateRangePipe, ParseMarkdownPipe],
   templateUrl: './experience-section.component.html',
   styleUrls: ['./experience-section.component.scss'],
-  encapsulation: ViewEncapsulation.None,
 })
 export class ExperienceSectionComponent {
   experienceList : Experience[] | undefined;
