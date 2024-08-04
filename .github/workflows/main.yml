@@ -27,4 +27,4 @@ jobs:
       - name: Deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: npm run-script fe:deploy
+        run: npx ng deploy --repo=https://github.com/${{ github.repository }}.git --base-href=/portfolio/ --name=${{ github.actor }} --email=${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com

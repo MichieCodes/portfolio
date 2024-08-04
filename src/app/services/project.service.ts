@@ -32,7 +32,7 @@ export class ProjectService {
 
   getProjectBySlug(slug : string) : Observable<Project[]> {
     if(!this.projects) {
-      return this.http.get<Project[]>(`${QUERY_URL}"${slug}"`).pipe(
+      return this.http.get<Project[]>(`${QUERY_URL}${slug}`).pipe(
         catchError((err : HttpErrorResponse) => HttpErrorHandler(err, 'Could not Retrieve Project')),
       );
     }
