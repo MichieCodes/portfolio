@@ -1,4 +1,4 @@
-<app-modal *ngIf="modalInfo" [info]="modalInfo" (close)="closeModal()"></app-modal>
+@if (modalInfo) {<app-modal [info]="modalInfo" (close)="closeModal()"></app-modal>}
 
 <app-home-section></app-home-section>
 <app-skills-section></app-skills-section>

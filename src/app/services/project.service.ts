@@ -3,16 +3,14 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 import { HttpErrorHandler } from '../utils/http-error-handler.util';
 import { Project } from '../models/project';
 
 const ALL_URL : string = `${environment.API_BASE_URL}/projects`;
 const QUERY_URL : string = `${environment.API_BASE_URL}/project?slug=`;
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class ProjectService {
   projects : Project[] | undefined;
 

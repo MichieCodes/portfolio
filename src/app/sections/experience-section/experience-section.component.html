@@ -1,27 +1,31 @@
 <section id="experience">
   <h1 class="title-heading"><span class="arrow">< </span>Experience<span class="arrow"> ></span></h1>
 
-  <div *ngIf="experienceList">
-    <div class="experience section-container" *ngFor="let experience of experienceList">
-      <div class="experience__info">
-        <div class="experience__info__company">
-          <h3>{{experience.company}}</h3>
-          <span>{{experience | getDateRange}}</span>
-        </div>
+  @if (experienceList) {
+    <div>
+      @for (experience of experienceList; track $index) {
+        <div class="experience section-container">
+          <div class="experience__info">
+            <div class="experience__info__company">
+              <h3>{{experience.company}}</h3>
+              <span>{{experience | getDateRange}}</span>
+            </div>
 
-        <h4>{{experience.role}}</h4>
+            <h4>{{experience.role}}</h4>
 
-        <div
-          class="experience__info__description"
-          [innerHtml]="experience.description | parseMarkdown">
+            <div
+              class="experience__info__description"
+              [innerHtml]="experience.description | parseMarkdown">
+            </div>
+          </div>
         </div>
+      }
+    </div>
+  } @else {
+    <div>
+      <div class="experience section-container">
+        <h2 class="error-message">@if (loading) {Loading Experience...} @else {Could Not Load Experience}</h2>
       </div>
     </div>
-  </div>
-
-  <div *ngIf="!experienceList">
-    <div class="experience section-container">
-      <h1 class="error-message">Could not Load Experience</h1>
-    </div>
-  </div>
+  }
 </section>

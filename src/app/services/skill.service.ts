@@ -3,15 +3,13 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 import { HttpErrorHandler } from '../utils/http-error-handler.util';
 import { Skill } from '../models/skill';
 
 const URL : string = `${environment.API_BASE_URL}/skills`;
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class SkillService {
   skills : Skill[] | undefined;
 

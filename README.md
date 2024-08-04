@@ -48,7 +48,7 @@ AIRTABLE_BASE=<Base ID>
 ```JS
 export const environment = {
   production: true,
-  API_BASE_URL: 'https://michie-portfolio.netlify.app'
+  API_BASE_URL: 'https://my-base-url-here.app'
 };
 ```
 

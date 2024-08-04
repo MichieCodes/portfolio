@@ -1,2 +1,4 @@
-<app-image-header *ngIf="project" [image]="project.image"></app-image-header>
-<app-detail-section *ngIf="project" [project]="project"></app-detail-section>
+@if (project) {
+  <app-image-header [image]="project.image"></app-image-header>
+  <app-detail-section [project]="project"></app-detail-section>
+}

@@ -1,13 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
-import { NavLink } from 'src/app/models/nav-link';
+import { NavLink } from '../../models/nav-link';
 
 @Component({
   selector: 'app-header',
+  standalone: true,
+  imports: [RouterLink],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   isOpen : boolean = false;
   links : NavLink[] = [
     {title: 'Home', path: ''},
@@ -17,8 +20,4 @@ export class HeaderComponent implements OnInit {
     {title: 'About', path: 'about'},
     {title: 'Contact', path: 'contact'}
   ];
-
-  constructor() { }
-
-  ngOnInit(): void { }
 }

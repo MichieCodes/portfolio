@@ -3,6 +3,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import snarkdown from 'snarkdown';
 
 @Pipe({
+  standalone: true,
   name: 'parseMarkdown'
 })
 export class ParseMarkdownPipe implements PipeTransform {

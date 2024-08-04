@@ -3,15 +3,13 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 import { HttpErrorHandler } from '../utils/http-error-handler.util';
 import { Experience } from '../models/experience';
 
 const URL : string = `${environment.API_BASE_URL}/experience`;
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class ExperienceService {
   experience : Experience[] | undefined;
 

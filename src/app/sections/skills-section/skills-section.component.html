@@ -1,25 +1,30 @@
 <section id="skills">
   <h1 class="title-heading"><span class="arrow">< </span>Skills<span class="arrow"> ></span></h1>
 
-  <div class="section-container" *ngIf="skills">
-    <div id="filter-container">
-      <h3>Filter</h3>
+  @if (skills) {
+    <div class="section-container">
+      <div id="filter-container">
+        <h3>Filter</h3>
 
-      <div>
-        <label class="filter-category" *ngFor="let category of categories">
-          <input type="radio" name="category" [value]="category" [(ngModel)]="selectedCategory"/>
-          <span><span></span></span>{{category}}
-        </label>
+        <div>
+          @for (category of categories; track category) {
+            <label class="filter-category">
+              <input type="radio" name="category" [value]="category" [(ngModel)]="selectedCategory"/>
+              <span><span></span></span>{{category}}
+            </label>
+          }
+        </div>
+      </div>
+
+      <div id="skills-container">
+        @for (skill of skills | filterByCategory:selectedCategory; track skill.title) {
+          <div>{{skill.title}}</div>
+        }
       </div>
     </div>
-
-    <div id="skills-container">
-      <div *ngFor="let skill of (skills | filterByCategory:selectedCategory)">{{skill.title}}</div>
+  } @else {
+    <div class="section-container" style="display: flex;">
+      <h2 class="error-message">@if (loading) {Loading Skills...} @else {Could Not Load Skills}</h2>
     </div>
-  </div>
-
-  <div class="section-container" style="display: flex;" *ngIf="!skills">
-    <h2 class="error-message" *ngIf="loading">Loading Skills...</h2>
-    <h2 class="error-message" *ngIf="!loading">Could Not Load Skills</h2>
-  </div>
+  }
 </section>

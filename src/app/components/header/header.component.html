@@ -1,11 +1,18 @@
 <header>
-  <a routerLink="/"><img id="logo" [src]="'../../../assets/logo.svg' | pathResolver" alt="Michelle's Logo" /></a>
+  <a routerLink="/"><img id="logo" src="/assets/logo.svg" alt="Michelle's Logo" /></a>
   <span class="nav-open" (click)="isOpen = true">&#9776;</span>
   <ul [class.nav-is-open]="isOpen">
     <li class="nav-close close-btn" (click)="isOpen = false">X</li>
-    <li class="nav-link" *ngFor="let link of links" (click)="isOpen = false">
-      <span *ngIf="!link.path"><a routerLink="/">{{link.title}}</a></span>
-      <span *ngIf="link.path"><a routerLink="/" [fragment]="link.path">{{link.title}}</a></span>
-    </li>
+    @for (link of links; track $index) {
+      <li class="nav-link" (click)="isOpen = false">
+        <span>
+          @if (link.path) {
+            <a routerLink="/" [fragment]="link.path">{{link.title}}</a>
+          } @else {
+            <a routerLink="/">{{link.title}}</a>
+          }
+        </span>
+      </li>
+    }
   </ul>
 </header>
