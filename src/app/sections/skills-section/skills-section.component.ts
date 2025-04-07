@@ -14,7 +14,7 @@ import { SkillService } from '../../services/skill.service';
 })
 export class SkillsSectionComponent {
   skills : Skill[] | undefined;
-  categories : string[] = ['All', 'Languages', 'Frameworks', 'OS', 'Databases', 'Other'];
+  categories : string[] = ['All', 'Languages', 'Frameworks', 'Databases', 'Other'];
   selectedCategory : string = this.categories[0];
 
   loading : boolean = true;
